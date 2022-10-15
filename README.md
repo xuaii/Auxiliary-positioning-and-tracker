@@ -24,7 +24,7 @@
     * ADS 每一个倍镜的灵敏度（不同倍镜的灵敏度是不一样的，没有实现切换倍镜的逻辑，默认按照 1 倍处理的但是影响不大，如果需要可以自行修改python脚本添加功能）
 
 ### 模型训练 
-我参考的Yolov7 官方 [repo](参考官方Yolov7 repo)
+我参考的 [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 ```shell
 # 可以自己训练模型然后 导出到 .rtr
 wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-tiny.pt
