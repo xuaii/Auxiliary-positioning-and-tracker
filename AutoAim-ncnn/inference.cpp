@@ -8,15 +8,13 @@ void inference_thread_func()
 	json json_data;;
 
 	Config config;
-	// ĞèÒª¸ù¾İµ±Ç°ÔËĞĞ»·¾³¹¹ÔìÎÄ¼şÈ«Ãû
+	// éœ€è¦æ ¹æ®å½“å‰è¿è¡Œç¯å¢ƒæ„é€ æ–‡ä»¶å…¨å
 	try {
 		f.open("./config/config.json");
 		json_data = json::parse(f);
 		CustomConsole::Instance().AddLog("# load config from: config.json");
 		config.windowName = json_data["windowName"];
 		config.pythonHome = json_data["pythonHome"];
-		config.debugWindowSize = json_data["debugWindowSize"];
-		config.debug = json_data["debug"];
 		config.mouseMovementDelay = json_data["mouseMovementDelay"];
 		config.modelPath = json_data["modelPath"];
 	}
@@ -28,9 +26,9 @@ void inference_thread_func()
 	// ----------------------- grabber -----------------------
 	CustomConsole::Instance().AddLog("# init screen grabber ...");
 
-	// ÒªÇóÊÇÎŞ±ß¿ò´°¿Ú
+	// è¦æ±‚æ˜¯æ— è¾¹æ¡†çª—å£
 	HWND handle; RECT rect;
-	handle = FindWindow(NULL, utils::stringToLPCWSTR("Apex Legends"));
+	handle = FindWindow(NULL, utils::stringToLPCWSTR(config.windowName));
 	if (!handle)
 	{
 		CustomConsole::Instance().AddLog("cant find window");
@@ -100,7 +98,7 @@ void inference_thread_func()
 		void* pixel = grabber_grab(grabber);
 		frame = cv::Mat(cv::Size{ grabber->width, grabber->height }, CV_8UC3);
 		frame.data = (uchar*)pixel;
-		// ´¦ÀíÖØĞÂ¼ÓÔØ½Å±¾µÈÊÂ¼ş
+		// å¤„ç†é‡æ–°åŠ è½½è„šæœ¬ç­‰äº‹ä»¶
 		if (state.reloadScriptFlag)
 		{
 			pmodel = PyImport_ReloadModule(pmodel);
