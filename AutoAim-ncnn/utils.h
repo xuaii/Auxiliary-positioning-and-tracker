@@ -71,7 +71,7 @@ using std::ofstream;
 using std::string;
 using std::vector;
 
-#define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0) //必要的，我是背下来的 
+#define KEY_DOWN(VK_NONAME) ((GetAsyncKeyState(VK_NONAME) & 0x8000) ? 1:0) //蹇呰鐨勶紝鎴戞槸鑳屼笅鏉ョ殑 
 
 
 
@@ -122,11 +122,9 @@ public:
 struct Config
 {
     std::string windowName = "";
-    bool debug;
     std::string pythonHome;
     std::string modelPath;
     int mouseMovementDelay;
-    int debugWindowSize;
 };
 
 
@@ -200,5 +198,5 @@ static void track(PyObject* pFunc, PyObject* dict, std::vector<TargetBox>& boxes
     {
         PyErr_Print();
     }
-    // 移动鼠标
+    // 绉诲姩榧犳爣
 }
