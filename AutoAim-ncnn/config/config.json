@@ -1,8 +1,6 @@
 {
     "windowName" : "Apex Legends",
-    "pythonHome":"C:/Users/xuaii/AppData/Local/Programs/Python/Python39",
+    "pythonHome":"Python39/",
     "modelPath" : "models/yolov7-tiny-11w-250x250.trt",
-    "mouseMovementDelay":0,
-    "debug" : true,
-    "debugWindowSize": 320
+    "mouseMovementDelay":0
 }
